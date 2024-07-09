@@ -1,0 +1,119 @@
+/* 공통 */
+html, body {
+    scroll-behavior: smooth; /* 스크롤 동작 시 애니메이션 기능과 함께 동작한다. */
+    color: #fff;
+}
+.profile, .project > div {
+    max-width: 1200px; margin: 0 auto;
+    border: 1px solid black;
+}
+h1 {
+    font-family: "DM Serif Display", serif;
+    font-size: 10rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-align: center;
+    color: #fff;
+    text-transform: capitalize; /* capitalize : 앞 글자를 대문자로 변경 */
+}
+/* 0. 고정메뉴 */
+nav {
+    position: fixed; right: 50px; bottom: 50px; z-index: 999;
+    /* border-right: 2px solid #fff; */ /* 크기가 맞지 않아 가상선택자에서 만들어준다. */
+}
+nav::after {
+    content: '';
+    display: inline-block;
+    width: 2.5px; height: 100px;
+    background: #fff;
+    position: absolute; right: -20px; top: 17px;
+}
+nav a {
+    display: block; /* flex도 상관없음 */
+    text-align: right;
+    padding: 10px 0;
+}
+/* 배경 */
+.bg {
+    background: url(../images/bg.jpg) center 30%;
+    background-size: cover;
+}
+/* 1. 인트로 */
+.intro {
+    height: 100vh;
+}
+.intro .year {
+    padding: 20px;
+}
+.intro .center {
+    text-align: center;
+    padding: 130px 0 0;
+}
+.intro .center h1 {}
+.intro .center .name {
+    font-size: 2rem;
+    /* position: relative; left: 0; top: 0; */ /* 위치조절 방법 1. */
+    transform: translateY(-50px); /* 위치조절 방법 2. */
+}
+.intro .center .info {
+    font-size: 1.2rem;
+}
+/* 2. 프로필 */
+.profile {
+    height: 100vh;
+    display: flex;
+    flex-flow: row-reverse;
+}
+.profile .photo {
+    width: 200px; height: 200px;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-left: 20px;
+}
+.profile .photo img {
+    width: 100%;
+}
+.profile .txt {
+    background: rgba(255, 255, 255, 0.4);
+    padding: 20px ;
+    border-radius: 15px;
+    height: max-content; /* max-content : 내용에 맞춘다. */
+    width: calc(100% - 220px);
+    display: grid;
+    grid-template-areas: 
+    'a b'
+    'c c';
+}
+.profile .txt .list {}
+.profile .txt .list * {
+    color: #222;
+}
+.profile .txt .list:nth-child(1) {
+    grid-area: a;
+}
+.profile .txt .list:nth-child(2) {
+    grid-area: b;
+}
+.profile .txt .list:nth-child(3) {
+    grid-area: c;
+    padding-top: 30px;
+}
+.profile .txt .list h2 {
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+.profile .txt .list p {
+    line-height: 2;
+}
+.profile .txt .list p em {
+    font-weight: 600;
+}
+.profile .txt .list p span{
+    color: #555;
+}
+/* 3. 프로젝트 */
+.project {
+    padding: 100px 0;
+    background: linear-gradient(180deg, #301dfd, #b2bbff, #301dfd);
+}
